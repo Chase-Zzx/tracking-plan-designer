@@ -1,5 +1,9 @@
-# tracking-plan-designer
+<a name="zh"></a>
 
+# 用户行为监测 Skill
+
+> 标识符 / Skill ID: `tracking-plan-designer`
+>
 > 中文 | [English](#english)
 
 一个 [Claude Skill](https://docs.claude.com/en/docs/claude-code/skills)，用于**设计和落地一套用户行为数据监测 / 数据埋点体系**。
@@ -75,9 +79,11 @@ python3 scripts/validate_tracking_plan.py your-tracking-plan.csv
 
 <a name="english"></a>
 
-# tracking-plan-designer
+# User-Behavior Analytics Skill
 
-> [中文](#tracking-plan-designer) | English
+> 标识符 / Skill ID: `tracking-plan-designer`
+>
+> [中文](#zh) | English
 
 A [Claude Skill](https://docs.claude.com/en/docs/claude-code/skills) for **designing and shipping a complete user-behavior analytics / event-tracking system**.
 
