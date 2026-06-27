@@ -55,7 +55,7 @@ tracking-plan-designer/
 把整个目录放进 Claude 的 skills 目录即可：
 
 ```bash
-git clone https://github.com/Chase-Zzx/tracking-plan-designer.git \
+git clone https://github.com/Chase-Zzx/user-behavior-analytics-skill.git \
   ~/.claude/skills/tracking-plan-designer
 ```
 
@@ -134,7 +134,7 @@ tracking-plan-designer/
 Drop the whole directory into Claude's skills folder:
 
 ```bash
-git clone https://github.com/Chase-Zzx/tracking-plan-designer.git \
+git clone https://github.com/Chase-Zzx/user-behavior-analytics-skill.git \
   ~/.claude/skills/tracking-plan-designer
 ```
 
