@@ -1,5 +1,7 @@
 # tracking-plan-designer
 
+> 中文 | [English](#english)
+
 一个 [Claude Skill](https://docs.claude.com/en/docs/claude-code/skills)，用于**设计和落地一套用户行为数据监测 / 数据埋点体系**。
 
 它不会一上来就甩给你一堆「要埋的事件」，而是带你从**业务目标反推**到可落地的埋点方案：
@@ -49,7 +51,7 @@ tracking-plan-designer/
 把整个目录放进 Claude 的 skills 目录即可：
 
 ```bash
-git clone https://github.com/<your-account>/tracking-plan-designer.git \
+git clone https://github.com/Chase-Zzx/tracking-plan-designer.git \
   ~/.claude/skills/tracking-plan-designer
 ```
 
@@ -68,3 +70,80 @@ python3 scripts/validate_tracking_plan.py your-tracking-plan.csv
 ## 致谢
 
 方法论综合自神策、GrowingIO、Amplitude、Mixpanel、PostHog、GA4 等主流分析体系的公开最佳实践。
+
+---
+
+<a name="english"></a>
+
+# tracking-plan-designer
+
+> [中文](#tracking-plan-designer) | English
+
+A [Claude Skill](https://docs.claude.com/en/docs/claude-code/skills) for **designing and shipping a complete user-behavior analytics / event-tracking system**.
+
+Instead of dumping a pile of "events to track" on you, it walks you **backward from business goals** to a tracking plan you can actually ship:
+
+```
+Business goal (North Star) → User journey (UJM) → Metrics (OSM/HEART) → Events → Tracking Plan → QA / Data governance
+```
+
+The final deliverable is a **Tracking Plan (event dictionary)** ready to hand to engineering, plus naming conventions, a QA checklist, and a governance process.
+
+## When it triggers
+
+It activates automatically when you ask Claude things like:
+
+- "How should a website/app track user behavior?" / "How do I build a data-monitoring system?"
+- "Help me design an event-tracking plan / event model."
+- "How do I build a metrics framework / North Star metric / OSM / user journey?"
+- "How do I instrument with Sensors Data / GrowingIO / Amplitude / Mixpanel / GA4 / ThinkingData?"
+- Anything about event taxonomy, tracking plans, analytics instrumentation, or funnel / retention / attribution / cohort design.
+
+## Core ideas
+
+- **Start from "why," not from "what to track"** — instrumenting first and finding a use later always leads to sprawl.
+- **A metric you can't compute is empty; an event that feeds no metric is noise.**
+- Built on the **Event–Property–User** model (the same abstraction behind Sensors Data, GrowingIO, Amplitude, Mixpanel, and GA4).
+- Naming conventions come first (object-action, fixed strings, variables go in properties).
+- **Treat tracking as code**: every event has an owner, a schema, a migration path, and CI validation.
+
+## Layout
+
+```
+tracking-plan-designer/
+├── SKILL.md                          # Main workflow and principles
+├── references/
+│   ├── methodology.md                # North Star / OSM / UJM / HEART / AARRR
+│   ├── event-model.md                # Event/Property/User, identify, client vs server
+│   ├── naming-conventions.md         # Naming rules, property rules, platform limits, do/don't
+│   └── governance-qa.md              # QA checklist, data-quality monitoring, lifecycle & governance
+├── assets/
+│   └── tracking-plan-template.csv    # Event dictionary / Tracking Plan deliverable template
+└── scripts/
+    └── validate_tracking_plan.py     # Linter for naming / required fields / type consistency
+```
+
+## Install
+
+Drop the whole directory into Claude's skills folder:
+
+```bash
+git clone https://github.com/Chase-Zzx/tracking-plan-designer.git \
+  ~/.claude/skills/tracking-plan-designer
+```
+
+(For project-level install, use `<project>/.claude/skills/`.)
+
+## Using the linter
+
+Once your Tracking Plan CSV is filled in, validate naming conventions, required fields, and type consistency offline:
+
+```bash
+python3 scripts/validate_tracking_plan.py your-tracking-plan.csv
+```
+
+Exit codes: `0` pass (warnings possible) / `1` errors found / `2` usage or read error. Wire it straight into CI.
+
+## Credits
+
+The methodology synthesizes public best practices from Sensors Data, GrowingIO, Amplitude, Mixpanel, PostHog, and GA4.
