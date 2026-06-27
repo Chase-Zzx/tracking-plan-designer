@@ -1,0 +1,12 @@
+event_name,event_cn,trigger_timing,page_or_surface,platform,property_name,property_type,property_example,property_required,metric_served,collection_method,owner,status,version
+product_viewed,商品详情曝光,用户进入商品详情页且主图可见时触发一次,商品详情页,"ios,android,web",product_id,string,p_10231,true,详情页→加购转化率,client,产品-张三,active,1.0
+product_viewed,商品详情曝光,,商品详情页,"ios,android,web",category,string,shoes,true,详情页→加购转化率,client,产品-张三,active,1.0
+product_viewed,商品详情曝光,,商品详情页,"ios,android,web",source_slot,string,home_feed,false,渠道/坑位归因,client,产品-张三,active,1.0
+cart_item_added,加入购物车,用户点击「加入购物车」且加购成功后触发,商品详情页/列表页,"ios,android,web",product_id,string,p_10231,true,加购→结算转化率,client,产品-张三,active,1.0
+cart_item_added,加入购物车,,商品详情页/列表页,"ios,android,web",quantity,number,2,true,客单件数,client,产品-张三,active,1.0
+checkout_started,进入结算,用户进入结算页时触发一次,结算页,"ios,android,web",cart_amount,number,398.00,true,结算→支付转化率,client,产品-李四,active,1.0
+order_completed,支付成功,服务端确认收款成功后触发,服务端,server,order_id,string,o_55012,true,支付成功数/GMV,server,数据-王五,active,1.0
+order_completed,支付成功,,服务端,server,amount,number,398.00,true,GMV/客单价,server,数据-王五,active,1.0
+order_completed,支付成功,,服务端,server,payment_type,string,alipay,true,支付方式分布,server,数据-王五,active,1.0
+order_completed,支付成功,,服务端,server,is_first_order,boolean,true,true,新客首单率,server,数据-王五,active,1.0
+payment_failed,支付失败,支付返回失败状态时触发,结算页/服务端,server,fail_reason,string,insufficient_balance,true,支付失败率,server,数据-王五,active,1.0
